@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>森之宿茶室 - 官方網站</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans TC', 'Microsoft JhengHei', sans-serif;
+            line-height: 1.6;
+            color: #5a4a42;
+            background: linear-gradient(135deg, #fffaf0 0%, #ffe4e6 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* 頁首樣式 */
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #ff69b4 0%, #ff1493 100%);
+            color: white;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(255, 105, 180, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: "🌸";
+            font-size: 120px;
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            opacity: 0.2;
+            transform: rotate(15deg);
+        }
+
+        header::after {
+            content: "🎐";
+            font-size: 100px;
+            position: absolute;
+            bottom: 10px;
+            left: 40px;
+            opacity: 0.2;
+            transform: rotate(-10deg);
+        }
+
+        .logo {
+            font-size: 3.5em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .subtitle {
+            font-size: 1.4em;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+
+        /* 導航樣式 */
+        nav {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #ff69b4;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .nav-links a:hover {
+            background: #ff69b4;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 105, 180, 0.4);
+        }
+
+        /* 主要內容樣式 */
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h2 {
+            color: #ff69b4;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #ffe4e6;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card h2::before {
+            content: "🌸";
+        }
+
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #f0f0f0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+
+        .feature-list li::before {
+            content: "✅";
+        }
+
+        /* 條款內容樣式 */
+        .terms-content {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+        }
+
+        .terms-content h2 {
+            color: #ff69b4;
+            margin: 30px 0 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #ffe4e6;
+        }
+
+        .terms-content h2:first-child {
+            margin-top: 0;
+        }
+
+        .terms-content h3 {
+            color: #e75480;
+            margin: 20px 0 10px;
+        }
+
+        .terms-content p {
+            margin-bottom: 15px;
+        }
+
+        .terms-content ul {
+            margin: 15px 0;
+            padding-left: 20px;
+        }
+
+        .terms-content li {
+            margin-bottom: 8px;
+        }
+
+        /* 頁尾樣式 */
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.1);
+            margin-top: 40px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #ff69b4;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #e75480;
+            text-decoration: underline;
+        }
+
+        .copyright {
+            color: #888;
+            font-size: 0.9em;
+        }
+
+        /* 響應式設計 */
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 2.5em;
+            }
+            
+            .subtitle {
+                font-size: 1.1em;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .card, .terms-content {
+                padding: 20px;
+            }
+        }
+
+        /* 動畫效果 */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.8s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 頁首 -->
+        <header class="fade-in">
+            <h1 class="logo">森之宿茶室</h1>
+            <p class="subtitle">千戀＊万花的溫暖延續 - Discord主題機器人</p>
+        </header>
+
+        <!-- 導航 -->
+        <nav class="fade-in">
+            <ul class="nav-links">
+                <li><a href="#home">首頁</a></li>
+                <li><a href="#features">功能特色</a></li>
+                <li><a href="#terms">服務條款</a></li>
+                <li><a href="#privacy">隱私政策</a></li>
+                <li><a href="https://discord.com/oauth2/authorize?client_id=1434163841259798609&permissions=277025770560&scope=bot%20applications.commands" target="_blank">邀請機器人</a></li>
+            </ul>
+        </nav>
+
+        <!-- 主要內容 -->
+        <div class="main-content fade-in">
+            <!-- 左側卡片 -->
+            <div class="card">
+                <h2>關於我們</h2>
+                <p>森之宿茶室是一個以《千戀＊万花》為主題的Discord機器人，致力於在Discord平台延續穗村的溫暖故事。</p>
+                <p>通過26個精心設計的指令，讓玩家能夠與喜愛的角色互動、收集回憶、參與季節活動，體驗和風浪漫的茶室時光。</p>
+            </div>
+
+            <!-- 右側卡片 -->
+            <div class="card">
+                <h2>主要功能</h2>
+                <ul class="feature-list">
+                    <li>多語言角色互動系統</li>
+                    <li>武器鍛造與刀靈共鳴</li>
+                    <li>季節限定的茶會活動</li>
+                    <li>回憶相簿收集系統</li>
+                    <li>神社祈願與主題貨幣</li>
+                    <li>穗村傳聞創作與分享</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 服務條款 -->
+        <div id="terms" class="terms-content fade-in">
+            <h2>服務條款</h2>
+            <p>最後更新日期：2024年1月1日</p>
+
+            <h3>1. 接受條款</h3>
+            <p>通過使用森之宿茶室Discord機器人（以下簡稱"本服務"），您同意遵守這些服務條款。如果您不同意這些條款，請勿使用本服務。</p>
+
+            <h3>2. 服務描述</h3>
+            <p>森之宿茶室是一個Discord聊天機器人，提供以下功能：</p>
+            <ul>
+                <li>角色互動與對話系統</li>
+                <li>遊戲化功能（武器鍛造、回憶收集等）</li>
+                <li>多語言支援（繁體中文、日本語）</li>
+                <li>用戶數據存儲（遊戲進度、偏好設定）</li>
+            </ul>
+
+            <h3>3. 用戶義務</h3>
+            <p>使用本服務時，您同意：</p>
+            <ul>
+                <li>不利用本服務進行任何違法活動</li>
+                <li>不嘗試破壞或干擾本服務的正常運作</li>
+                <li>不使用自動化腳本或程式濫用服務功能</li>
+                <li>尊重其他用戶的體驗，不進行騷擾或濫用行為</li>
+            </ul>
+
+            <h3>4. 數據收集與使用</h3>
+            <p>我們收集的數據僅用於提供和改進服務，包括：</p>
+            <ul>
+                <li>Discord用戶ID</li>
+                <li>遊戲進度數據（貨幣、好感度、武器等）</li>
+                <li>語言偏好設定</li>
+                <li>指令使用統計</li>
+            </ul>
+
+            <h3>5. 服務變更與終止</h3>
+            <p>我們保留隨時修改或終止服務的權利，恕不另行通知。我們不對服務中斷或終止承擔責任。</p>
+
+            <h3>6. 免責聲明</h3>
+            <p>本服務按"原樣"提供，不作任何明示或暗示的保證。我們不保證服務不間斷、及時、安全或無錯誤。</p>
+
+            <h3>7. 聯繫我們</h3>
+            <p>如有關於本服務條款的問題，請通過Discord服務器聯繫我們。</p>
+        </div>
+
+        <!-- 隱私政策 -->
+        <div id="privacy" class="terms-content fade-in">
+            <h2>隱私政策</h2>
+            <p>最後更新日期：2024年1月1日</p>
+
+            <h3>1. 信息收集</h3>
+            <p>我們收集的信息包括：</p>
+            <ul>
+                <li><strong>Discord賬戶信息：</strong>用戶ID、用戶名、頭像</li>
+                <li><strong>遊戲數據：</strong>貨幣數量、角色好感度、武器信息、回憶解鎖狀態</li>
+                <li><strong>偏好設定：</strong>語言選擇、指令使用記錄</li>
+                <li><strong>技術信息：</strong>IP地址、瀏覽器類型、訪問時間</li>
+            </ul>
+
+            <h3>2. 信息使用</h3>
+            <p>我們使用收集的信息來：</p>
+            <ul>
+                <li>提供、維護和改進服務</li>
+                <li>個性化用戶體驗</li>
+                <li>分析服務使用情況以優化功能</li>
+                <li>防止濫用和確保服務安全</li>
+            </ul>
+
+            <h3>3. 信息共享</h3>
+            <p>我們不會出售、交易或轉讓您的個人信息給第三方，除非：</p>
+            <ul>
+                <li>獲得您的明確同意</li>
+                <li>遵守法律要求或執法請求</li>
+                <li>保護我們的權利、財產或用戶安全</li>
+            </ul>
+
+            <h3>4. 數據安全</h3>
+            <p>我們採取合理的技術和組織措施保護您的信息，但無法保證絕對安全。</p>
+
+            <h3>5. 數據保留</h3>
+            <p>我們會在提供服務所需的期間內保留您的信息，或根據法律要求保留。</p>
+
+            <h3>6. 您的權利</h3>
+            <p>您有權：</p>
+            <ul>
+                <li>訪問我們持有的您的個人信息</li>
+                <li>要求更正不準確的信息</li>
+                <li>要求刪除您的個人信息</li>
+                <li>撤回對數據處理的同意</li>
+            </ul>
+
+            <h3>7. 政策變更</h3>
+            <p>我們可能會更新本隱私政策。更新後的政策將在本頁面發布。</p>
+
+            <h3>8. 聯繫我們</h3>
+            <p>如有隱私相關問題，請通過我們的Discord服務器聯繫。</p>
+        </div>
+
+        <!-- 頁尾 -->
+        <footer class="fade-in">
+            <div class="footer-links">
+                <a href="#terms">服務條款</a>
+                <a href="#privacy">隱私政策</a>
+                <a href="https://discord.com/oauth2/authorize?client_id=1434163841259798609&permissions=277025770560&scope=bot%20applications.commands" target="_blank">邀請機器人</a>
+                <a href="#">支援服務器</a>
+            </div>
+            <p class="copyright">© 2024 森之宿茶室 - 保留所有權利</p>
+            <p class="copyright">本服務與《千戀＊万花》官方無關，為粉絲創作項目</p>
+        </footer>
+    </div>
+
+    <script>
+        // 簡單的滾動動畫
+        document.addEventListener('DOMContentLoaded', function() {
+            // 導航連結平滑滾動
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // 滾動時淡入效果
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // 觀察所有需要淡入的元素
+            document.querySelectorAll('.fade-in').forEach(el => {
+                el.style.opacity = 0;
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
