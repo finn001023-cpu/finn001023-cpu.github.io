@@ -285,17 +285,32 @@
             animation: fadeIn 0.8s ease-out;
         }
 
-        /* 新增：柔和的主題色調 */
-        .accent-color {
+        /* 入團申請區域 */
+        .membership-section {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+            margin-bottom: 40px;
+            border: 1px solid rgba(212, 181, 176, 0.2);
+            text-align: center;
+        }
+
+        .coming-soon {
+            background: linear-gradient(135deg, #e8c4c4 0%, #d4b5b0 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(212, 181, 176, 0.3);
+        }
+
+        .countdown {
+            font-size: 1.2em;
             color: #a87c7c;
-        }
-        
-        .light-bg {
-            background: rgba(248, 244, 240, 0.5);
-        }
-        
-        .border-accent {
-            border-color: #e8c4c4;
+            margin: 15px 0;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -312,6 +327,7 @@
             <ul class="nav-links">
                 <li><a href="#home">首頁</a></li>
                 <li><a href="#features">功能特色</a></li>
+                <li><a href="#membership">團隊申請</a></li>
                 <li><a href="#terms">服務條款</a></li>
                 <li><a href="#privacy">隱私政策</a></li>
                 <li><a href="https://discord.com/oauth2/authorize?client_id=1434163841259798609&permissions=277025770560&scope=bot%20applications.commands" target="_blank">邀請機器人</a></li>
@@ -341,10 +357,23 @@
             </div>
         </div>
 
+        <!-- 入團申請區域 -->
+        <div id="membership" class="membership-section fade-in">
+            <h2>團隊申請</h2>
+            <div class="coming-soon">
+                🎋 入團邀請審核系統即將開放 🎋
+            </div>
+            <p>我們正在準備團隊申請系統，預計將於 <strong>2025年12月2日</strong> 正式開放。</p>
+            <div class="countdown" id="countdown">
+                距離開放還有: 計算中...
+            </div>
+            <p>屆時將提供完整的申請流程和審核機制，歡迎有興趣加入森之宿茶室團隊的朋友們關注。</p>
+        </div>
+
         <!-- 服務條款 -->
         <div id="terms" class="terms-content fade-in">
             <h2>服務條款</h2>
-            <p>最後更新日期：2024年1月1日</p>
+            <p>最後更新日期：<strong>2025年11月2日</strong></p>
 
             <h3>1. 接受條款</h3>
             <p>通過使用森之宿茶室Discord機器人（以下簡稱"本服務"），您同意遵守這些服務條款。如果您不同意這些條款，請勿使用本服務。</p>
@@ -376,20 +405,23 @@
                 <li>指令使用統計</li>
             </ul>
 
-            <h3>5. 服務變更與終止</h3>
+            <h3>5. 入團邀請審核</h3>
+            <p>森之宿茶室團隊將於 <strong>2025年12月2日</strong> 開放入團邀請審核申請。在此日期之前，相關功能將不會顯示或開放。申請者需通過團隊審核流程，我們保留最終決定權。</p>
+
+            <h3>6. 服務變更與終止</h3>
             <p>我們保留隨時修改或終止服務的權利，恕不另行通知。我們不對服務中斷或終止承擔責任。</p>
 
-            <h3>6. 免責聲明</h3>
+            <h3>7. 免責聲明</h3>
             <p>本服務按"原樣"提供，不作任何明示或暗示的保證。我們不保證服務不間斷、及時、安全或無錯誤。</p>
 
-            <h3>7. 聯繫我們</h3>
+            <h3>8. 聯繫我們</h3>
             <p>如有關於本服務條款的問題，請通過Discord服務器聯繫我們。</p>
         </div>
 
         <!-- 隱私政策 -->
         <div id="privacy" class="terms-content fade-in">
             <h2>隱私政策</h2>
-            <p>最後更新日期：2024年1月1日</p>
+            <p>最後更新日期：<strong>2025年11月2日</strong></p>
 
             <h3>1. 信息收集</h3>
             <p>我們收集的信息包括：</p>
@@ -444,10 +476,10 @@
             <div class="footer-links">
                 <a href="#terms">服務條款</a>
                 <a href="#privacy">隱私政策</a>
+                <a href="#membership">團隊申請</a>
                 <a href="https://discord.com/oauth2/authorize?client_id=1434163841259798609&permissions=277025770560&scope=bot%20applications.commands" target="_blank">邀請機器人</a>
-                <a href="#">支援服務器</a>
             </div>
-            <p class="copyright">© 2024 森之宿茶室 - 保留所有權利</p>
+            <p class="copyright">© 2025 森之宿茶室團隊 - 保留所有權利</p>
             <p class="copyright">本服務與《千戀＊万花》官方無關，為粉絲創作項目</p>
         </footer>
     </div>
@@ -491,6 +523,30 @@
                 el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
                 observer.observe(el);
             });
+
+            // 倒數計時功能
+            function updateCountdown() {
+                const targetDate = new Date('2025-12-02T00:00:00');
+                const now = new Date();
+                const difference = targetDate - now;
+
+                if (difference <= 0) {
+                    document.getElementById('countdown').textContent = '入團申請現已開放！';
+                    return;
+                }
+
+                const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+                document.getElementById('countdown').textContent = 
+                    `距離開放還有: ${days}天 ${hours}小時 ${minutes}分 ${seconds}秒`;
+            }
+
+            // 初始更新並設定定時器
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
         });
     </script>
 </body>
