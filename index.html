@@ -379,11 +379,11 @@
             box-shadow: 0 5px 15px rgba(212, 181, 176, 0.3);
         }
 
-        .countdown {
-            font-size: 1.2em;
-            color: #a87c7c;
-            margin: 15px 0;
-            font-weight: bold;
+        .membership-info {
+            font-size: 1.1em;
+            color: #7a6a62;
+            margin: 20px 0;
+            line-height: 1.7;
         }
     </style>
 </head>
@@ -452,13 +452,19 @@
         <div id="membership" class="membership-section fade-in">
             <h2>團隊申請</h2>
             <div class="coming-soon">
-                🎋 入團邀請審核系統即將開放 🎋
+                🎋 入團邀請審核系統籌備中 🎋
             </div>
-            <p>我們正在準備團隊申請系統，預計將於 <strong>2025年12月2日</strong> 正式開放。</p>
-            <div class="countdown" id="countdown">
-                距離開放還有: 計算中...
+            <div class="membership-info">
+                <p>我們正在規劃團隊申請系統，未來將開放給有興趣加入森之宿茶室團隊的朋友們。</p>
+                <p>如果您對以下領域有熱情與專長，歡迎關注後續公告：</p>
+                <ul style="text-align: left; display: inline-block; margin: 15px 0;">
+                    <li>Discord 機器人開發</li>
+                    <li>網頁前端/後端設計</li>
+                    <li>社群管理與活動策劃</li>
+                    <li>日文翻譯與在地化</li>
+                </ul>
+                <p>詳細申請流程與資格將於系統完成後公布，感謝您的關注與支持！</p>
             </div>
-            <p>屆時將提供完整的申請流程和審核機制，歡迎有興趣加入森之宿茶室團隊的朋友們關注。</p>
         </div>
 
         <!-- 服務條款 -->
@@ -497,7 +503,7 @@
             </ul>
 
             <h3>5. 入團邀請審核</h3>
-            <p>森之宿茶室團隊將於 <strong>2025年12月2日</strong> 開放入團邀請審核申請。在此日期之前，相關功能將不會顯示或開放。申請者需通過團隊審核流程，我們保留最終決定權。</p>
+            <p>森之宿茶室團隊將在準備完成後開放入團邀請審核申請。在此之前，相關功能將不會顯示或開放。申請者需通過團隊審核流程，我們保留最終決定權。</p>
 
             <h3>6. 服務變更與終止</h3>
             <p>我們保留隨時修改或終止服務的權利，恕不另行通知。我們不對服務中斷或終止承擔責任。</p>
@@ -614,30 +620,6 @@
                 el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
                 observer.observe(el);
             });
-
-            // 倒數計時功能
-            function updateCountdown() {
-                const targetDate = new Date('2025-12-02T00:00:00');
-                const now = new Date();
-                const difference = targetDate - now;
-
-                if (difference <= 0) {
-                    document.getElementById('countdown').textContent = '入團申請現已開放！';
-                    return;
-                }
-
-                const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-
-                document.getElementById('countdown').textContent = 
-                    `距離開放還有: ${days}天 ${hours}小時 ${minutes}分 ${seconds}秒`;
-            }
-
-            // 初始更新並設定定時器
-            updateCountdown();
-            setInterval(updateCountdown, 1000);
         });
     </script>
 </body>
