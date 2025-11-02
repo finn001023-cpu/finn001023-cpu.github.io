@@ -15,7 +15,7 @@
             font-family: 'Noto Sans TC', 'Microsoft JhengHei', sans-serif;
             line-height: 1.6;
             color: #5a4a42;
-            background: linear-gradient(135deg, #fffaf0 0%, #ffe4e6 100%);
+            background: linear-gradient(135deg, #f8f4f0 0%, #f0e6e6 100%);
             min-height: 100vh;
         }
 
@@ -25,15 +25,15 @@
             padding: 20px;
         }
 
-        /* 頁首樣式 */
+        /* 頁首樣式 - 改為柔和色調 */
         header {
             text-align: center;
             padding: 60px 20px;
-            background: linear-gradient(135deg, #ff69b4 0%, #ff1493 100%);
-            color: white;
+            background: linear-gradient(135deg, #d4b5b0 0%, #e8c4c4 100%);
+            color: #5a4a42;
             border-radius: 20px;
             margin-bottom: 40px;
-            box-shadow: 0 10px 30px rgba(255, 105, 180, 0.3);
+            box-shadow: 0 10px 30px rgba(212, 181, 176, 0.3);
             position: relative;
             overflow: hidden;
         }
@@ -44,7 +44,7 @@
             position: absolute;
             top: 20px;
             right: 40px;
-            opacity: 0.2;
+            opacity: 0.15;
             transform: rotate(15deg);
         }
 
@@ -54,7 +54,7 @@
             position: absolute;
             bottom: 10px;
             left: 40px;
-            opacity: 0.2;
+            opacity: 0.15;
             transform: rotate(-10deg);
         }
 
@@ -62,22 +62,24 @@
             font-size: 3.5em;
             font-weight: bold;
             margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            color: #5a4a42;
         }
 
         .subtitle {
             font-size: 1.4em;
-            opacity: 0.9;
+            opacity: 0.8;
             margin-bottom: 20px;
+            color: #7a6a62;
         }
 
         /* 導航樣式 */
         nav {
-            background: white;
+            background: rgba(255, 255, 255, 0.9);
             padding: 20px;
             border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
             margin-bottom: 40px;
+            backdrop-filter: blur(10px);
         }
 
         .nav-links {
@@ -90,19 +92,20 @@
 
         .nav-links a {
             text-decoration: none;
-            color: #ff69b4;
+            color: #a87c7c;
             font-weight: bold;
             padding: 10px 20px;
             border-radius: 25px;
             transition: all 0.3s ease;
             border: 2px solid transparent;
+            background: rgba(255, 255, 255, 0.7);
         }
 
         .nav-links a:hover {
-            background: #ff69b4;
+            background: #d4b5b0;
             color: white;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(255, 105, 180, 0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(212, 181, 176, 0.3);
         }
 
         /* 主要內容樣式 */
@@ -120,22 +123,24 @@
         }
 
         .card {
-            background: white;
+            background: rgba(255, 255, 255, 0.9);
             padding: 30px;
             border-radius: 20px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
             transition: transform 0.3s ease;
+            border: 1px solid rgba(212, 181, 176, 0.2);
         }
 
         .card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
         }
 
         .card h2 {
-            color: #ff69b4;
+            color: #a87c7c;
             margin-bottom: 20px;
             padding-bottom: 10px;
-            border-bottom: 2px solid #ffe4e6;
+            border-bottom: 2px solid #e8c4c4;
             display: flex;
             align-items: center;
             gap: 10px;
@@ -143,6 +148,7 @@
 
         .card h2::before {
             content: "🌸";
+            opacity: 0.7;
         }
 
         .feature-list {
@@ -155,6 +161,7 @@
             display: flex;
             align-items: center;
             gap: 10px;
+            color: #7a6a62;
         }
 
         .feature-list li:last-child {
@@ -162,23 +169,27 @@
         }
 
         .feature-list li::before {
-            content: "✅";
+            content: "•";
+            color: #d4b5b0;
+            font-weight: bold;
+            font-size: 1.2em;
         }
 
         /* 條款內容樣式 */
         .terms-content {
-            background: white;
+            background: rgba(255, 255, 255, 0.9);
             padding: 40px;
             border-radius: 20px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
             margin-bottom: 40px;
+            border: 1px solid rgba(212, 181, 176, 0.2);
         }
 
         .terms-content h2 {
-            color: #ff69b4;
+            color: #a87c7c;
             margin: 30px 0 15px;
             padding-bottom: 10px;
-            border-bottom: 2px solid #ffe4e6;
+            border-bottom: 2px solid #e8c4c4;
         }
 
         .terms-content h2:first-child {
@@ -186,12 +197,14 @@
         }
 
         .terms-content h3 {
-            color: #e75480;
+            color: #8c6b6b;
             margin: 20px 0 10px;
         }
 
         .terms-content p {
             margin-bottom: 15px;
+            color: #5a4a42;
+            line-height: 1.7;
         }
 
         .terms-content ul {
@@ -201,16 +214,18 @@
 
         .terms-content li {
             margin-bottom: 8px;
+            color: #7a6a62;
         }
 
         /* 頁尾樣式 */
         footer {
             text-align: center;
             padding: 30px;
-            background: white;
+            background: rgba(255, 255, 255, 0.9);
             border-radius: 15px;
-            box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.06);
             margin-top: 40px;
+            border: 1px solid rgba(212, 181, 176, 0.2);
         }
 
         .footer-links {
@@ -222,15 +237,17 @@
         }
 
         .footer-links a {
-            color: #ff69b4;
+            color: #a87c7c;
             text-decoration: none;
             font-weight: bold;
             transition: color 0.3s ease;
+            padding: 5px 10px;
+            border-radius: 10px;
         }
 
         .footer-links a:hover {
-            color: #e75480;
-            text-decoration: underline;
+            color: #8c6b6b;
+            background: rgba(212, 181, 176, 0.1);
         }
 
         .copyright {
@@ -266,6 +283,19 @@
 
         .fade-in {
             animation: fadeIn 0.8s ease-out;
+        }
+
+        /* 新增：柔和的主題色調 */
+        .accent-color {
+            color: #a87c7c;
+        }
+        
+        .light-bg {
+            background: rgba(248, 244, 240, 0.5);
+        }
+        
+        .border-accent {
+            border-color: #e8c4c4;
         }
     </style>
 </head>
